@@ -8,7 +8,7 @@ session_start();//session starts here
 <head lang="en">  
     <meta charset="UTF-8">  
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">  
-    <title>Login</title>  
+    <title>Library Management System By JAP</title>  
 </head>  
 <style>  
     .login-panel {  
