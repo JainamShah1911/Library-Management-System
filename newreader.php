@@ -5,14 +5,15 @@
 <title>Untitled Document</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <?php
-include "adminheader.php";
+include 'adminheader.php';
 ?>
 </head>
 
 <body>
 
-<div class="container"style="padding-top:70px;width:500px;>
-<form class="form">
+<div class="container"style="padding-top:70px;width:500px;">
+
+<form class="form" method="post" action="newreader.php">
   	 <div class="form-group">
     <label for="id">ReaderID</label>
     <input type="number" class="form-control" id="id" name="id">
@@ -23,7 +24,7 @@ include "adminheader.php";
   </div>
   <div class="form-group">
   <label for="type">Reader Type</label>
-  <select class="form-control" id="type">
+  <select class="form-control" id="type" name="type">
     <option>Student</option>
     <option>Teacher</option>
     <option>Senior Citizen</option>
@@ -32,18 +33,39 @@ include "adminheader.php";
   </div>
   <div class="form-group">
     <label for="add">Address</label>
-    <input type="text" class="form-control" id="add" name="add">
+    <input type="text" class="form-control" id="addr" name="addr">
   </div>
   <div align="center">
-  <button type="submit" class="btn btn-success">Add Reader</button>
+  <button type="submit" class="btn btn-success" name="submit">Add Reader</button>
   </div>
 </form>
 </div>
+</body>
+<?php  
+  
+include("connect.php");  
+  
+if(isset($_POST['submit']))  
+{  
+    $id=$_POST['id'];  
+    $name=$_POST['name'];  
+    $type=$_POST['type'];
+    $addr=$_POST['addr']; 
+	
+   		 $query="INSERT INTO reader(READERID,RTYPE,RNAME,ADDRESS) VALUES('$id', '$type' , '$name' , '$addr')";  
+
+    
+   		$result = mysql_query($query)or die(mysql_error());
+		
+        header('location:newreader.php');
+		
+		echo "<script language='javascript'>alert('New Record Has Been Added');</script>";
+			
+	}
+?>
 <?php
 include 'footer.php';
 ?>
-</head>
 
-<body>
-</body>
+
 </html>

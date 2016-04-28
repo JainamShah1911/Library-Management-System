@@ -56,7 +56,7 @@ session_start();//session starts here
                     </form>  
                 </div>  
             </div>  
-        </div>  
+        </div>
 		<div class="col-md-5">  
             <div class="login-panel panel panel-success">  
                 <div class="panel-heading">  
@@ -73,10 +73,10 @@ session_start();//session starts here
                             </div>  
   
   
-                                <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="login" >  
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="adminlogin" >  
   
                             <!-- Change this to a button or input when using this as a form -->  
-                          <!--  <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> -->  
+                          <!--  <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a> --> 
                         </fieldset>  
                     </form>  
                 </div>  
@@ -96,23 +96,34 @@ include("connect.php");
   
 if(isset($_POST['login']))  
 {  
-    $user_email=$_POST['email'];  
-    $user_pass=$_POST['pass'];  
+    $rid=$_POST['id'];  
+ 
   
-    $check_user="select * from users WHERE user_email='$user_email'AND user_pass='$user_pass'";  
-  
-    $run=mysqli_query($dbcon,$check_user);  
-  
-    if(mysqli_num_rows($run))  
-    {  
-        echo "<script>window.open('search.php','_self')</script>";  
-  
-        $_SESSION['email']=$user_email;//here session is used and value of $user_email store in $_SESSION.  
-  
-    }  
-    else  
-    {  
-      echo "<script>alert('Email or password is incorrect!')</script>";  
-    }  
-}  
+    $query="select * from reader WHERE READERID='$rid'";  
+
+    
+   		$result = mysql_query($query)or die(mysql_error());
+		$num_row = mysql_num_rows($result);
+		$row=mysql_fetch_array($result);
+		if( $num_row > 0 ) {
+        header('location:search.php');
+			$_SESSION['rid']=$row['rid'];
+			}
+		else{ 
+			echo "<script language='javascript'>alert('Wrong Reader ID');</script>";
+			}
+	}
+	if(isset($_POST['adminlogin']))  
+	{  
+    $aid=$_POST['aid'];
+	$pass=$_POST['pass'];
+	   
+		if( $aid=='123' && $pass=='admin') {
+        header('location:newreader.php');
+			$_SESSION['aid']=$row['aid'];
+			}
+		else{
+				echo "<script language='javascript'>alert('Wrong Admin ID or Password');</script>";
+			}
+	}
 ?>
