@@ -7,7 +7,7 @@
 
 <body>
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation" class="active"><a href="index.php">Home</a></li>
   <li role="presentation"><a href="newreader.php">Add Reader</a></li>
   <li role="presentation"><a href="adddoc.php">Add Document Copy</a></li>
    <li role="presentation"><a href="searchdoc.php">Search Document Copy</a></li>

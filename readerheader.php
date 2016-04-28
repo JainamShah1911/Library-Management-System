@@ -7,9 +7,11 @@
 
 <body>
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation" class="active"><a href="index.php">Home</a></li>
   <li role="presentation"><a href="search.php">Search</a></li>
   <li role="presentation"><a href="Myholdings.php">MyList</a></li>
+  <li role="presentation"><a href="docdetails.php">Documents</a></li>
+
 </ul>
 
 </body>
