@@ -68,17 +68,11 @@ include("connect.php");
 </div>
 
 							<?php include "freqborrow.php";?>
+							<?php include "mostborrow.php";?>
+							<?php include "popbooks.php";?>
+							<?php include "avgfine.php";?>
 							
-							<div id="branch" style="display:none;">
-							<span>option 2</span>
-							</div>
-							<div id="books" style="display:none;">
-							<span>option 3</span>
-							</div>
-							<div id="fine" style="display:none;">
-							<span>option4</span>
-							</div>
-	
+							
 
 </body>
 <?php

@@ -9,12 +9,11 @@
 </head>
 
 <body>
-<div id="borrow" class="container" style="padding-top:70px;display:none;">
+<div id="branch" class="container" style="padding-top:70px;display:none;">
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Reader ID</th>
-      <th>Reader Name</th>
+      <th>Document ID</th>
       <th>Document Name</th>
       <th>Copy Number</th>
 	  <th>Branch Name</th>
@@ -26,8 +25,7 @@
       <td></td>
       <td></td>
       <td></td>
-	  <td></td>
-	
+	  
     </tr>
     </tbody>
 </table>

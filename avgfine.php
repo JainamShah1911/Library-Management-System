@@ -9,15 +9,14 @@
 </head>
 
 <body>
-<div id="borrow" class="container" style="padding-top:70px;display:none;">
+<div id="fine" class="container" style="padding-top:70px;display:none;">
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Reader ID</th>
       <th>Reader Name</th>
-      <th>Document Name</th>
-      <th>Copy Number</th>
-	  <th>Branch Name</th>
+      <th>Average Fine</th>
+      
 	</tr>
   </thead>
   <tbody>
@@ -25,8 +24,7 @@
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-	  <td></td>
+      
 	
     </tr>
     </tbody>

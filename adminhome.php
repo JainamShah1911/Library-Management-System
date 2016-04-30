@@ -16,7 +16,7 @@ include 'adminheader.php';
   
 <div class="container">  
 
-<div class="jumbotron">
+<div class="jumbotron" style="margin-top:30px;">
     <h1>Welcome Administrator</h1>      
     <p>Manage Your Readers Here !</p>
   </div>   

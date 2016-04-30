@@ -27,7 +27,7 @@ include 'readerheader.php';
   
 <div class="container">  
 
-<div class="jumbotron">
+<div class="jumbotron" style="margin-top:30px;">
     <h1><?php echo "Welcome $fila[0]"; ?></h1>      
     <p>Manage Your Profile Here !</p>
   </div>   
