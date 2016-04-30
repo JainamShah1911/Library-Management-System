@@ -11,9 +11,9 @@ include("connect.php");
 </head>
 
 <body>
-<div class="container"style="padding-top:70px;width:500px;">
-<form class="form">
-  	 <div class="form-group">
+<div class="container"style="padding-top:70px;">
+<form class="form" style="width: 500px; margin-left: 300px;">
+  	 <div align="center" class="form-group">
 		<label for="type">Get Statistics Of:</label>
 		  <select class="form-control" id="stat" name="stat" onChange="call()">
 		  	<option value="0">------No Selection------</option>
@@ -64,10 +64,11 @@ include("connect.php");
 									
 								}
 							</script>
+</form>
+</div>
+
+							<?php include "freqborrow.php";?>
 							
-							<div id="borrow" style="display:none;">
-							<span>hello world</span>
-							</div>
 							<div id="branch" style="display:none;">
 							<span>option 2</span>
 							</div>
@@ -78,8 +79,6 @@ include("connect.php");
 							<span>option4</span>
 							</div>
 	
-</form>
-</div>
 
 </body>
 <?php
