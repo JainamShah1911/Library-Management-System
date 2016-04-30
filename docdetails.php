@@ -6,11 +6,13 @@
 <title>Untitled Document</title>
 <?php
 include "readerheader.php";
+include("connect.php");
 ?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+
 <div class="container" style="padding-top:70px;">
 <table class="table table-striped">
   <thead>
@@ -22,14 +24,20 @@ include "readerheader.php";
     </tr>
   </thead>
   <tbody>
+   <?php  
+    $user_query=mysql_query("select TITLE,PUBNAME,DOCID from document,publisher WHERE document.PUBLISHERID=publisher.PUBLISHERID")or die(mysql_error());
+	while($row=mysql_fetch_array($user_query)){
+	?>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><?php echo $row['DOCID']; ?></td>
+      <td><?php echo $row['TITLE']; ?></td>
+      <td><?php echo $row['PUBNAME']; ?></td>
 	</tr>
+	<?php } ?>
     
   </tbody>
 </table>
+
 </div>
 
 </div>

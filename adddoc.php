@@ -6,12 +6,25 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <?php
 include "adminheader.php";
+include("connect.php");
 ?>
 </head>
 
+<style>  
+
+	.row {
+		padding:0px;
+		 margin-left:auto;
+		
+		 } 	  
+  
+</style>  
+
 <body>
 
-<div class="container"style="padding-top:70px;width:500px;>
+<div class="container" style="padding-top:70px;width:500px;">
+<div class="row">  
+        <div class="col-md-6">  
 <form class="form">
   	 <div class="form-group">
     <label for="id">Document ID</label>
@@ -37,7 +50,63 @@ include "adminheader.php";
     <label for="add">Address</label>
     <input type="text" class="form-control" id="add" name="add">
   </div>
-  <div align="center">
+  </div>
+  <div class="row">  
+        <div class="col-md-6">  
+   <div class="form-group">
+    <label for="cno">Copy Number</label>
+    <input type="number" class="form-control" id="cno" name="cno">
+  </div>
+   <div class="form-group">
+    <label for="libid">Library ID</label>
+	<?php
+	
+		$sql = "SELECT LIBID FROM branch";
+		$result = mysql_query($sql);
+
+		echo "<select name='libid' class='form-control'>";
+		while ($row = mysql_fetch_array($result)) {
+    	echo "<option value='" . $row['LIBID'] ."'>" . $row['LIBID'] ."</option>";
+		}
+		echo "</select>";
+	?>
+    
+  </div>
+     <div class="form-group">
+    <label for="pos">Position</label>
+    <input type="number" class="form-control" id="pos" name="pos">
+  </div>
+   <div class="form-group">
+    <label for="lname">Branch Name</label>
+    <?php
+	
+		$sql = "SELECT LNAME FROM branch";
+		$result = mysql_query($sql);
+
+		echo "<select name='lname' class='form-control'>";
+		while ($row = mysql_fetch_array($result)) {
+    	echo "<option value='" . $row['LNAME'] ."'>" . $row['LNAME'] ."</option>";
+		}
+		echo "</select>";
+	?>
+  </div>
+   <div class="form-group">
+    <label for="lloc">Location</label>
+     <?php
+	
+		$sql = "SELECT LLOCATION FROM branch";
+		$result = mysql_query($sql);
+
+		echo "<select name='lloc' class='form-control'>";
+		while ($row = mysql_fetch_array($result)) {
+    	echo "<option value='" . $row['LLOCATION'] ."'>" . $row['LLOCATION'] ."</option>";
+		}
+		echo "</select>";
+	?>
+  </div>
+  </div>
+  </div>
+	<div align="center">
   <button type="submit" class="btn btn-success">Add Document</button>
   </div>
 </form>

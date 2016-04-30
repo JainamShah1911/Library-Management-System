@@ -106,7 +106,7 @@ if(isset($_POST['login']))
 		$num_row = mysql_num_rows($result);
 		$row=mysql_fetch_array($result);
 		if( $num_row > 0 ) {
-        header('location:search.php');
+        header('location:welcomereader.php');
 			$_SESSION['rid']=$row['rid'];
 			}
 		else{ 
@@ -119,7 +119,7 @@ if(isset($_POST['login']))
 	$pass=$_POST['pass'];
 	   
 		if( $aid=='123' && $pass=='admin') {
-        header('location:newreader.php');
+        header('location:adminhome.php');
 			$_SESSION['aid']=$row['aid'];
 			}
 		else{

@@ -20,11 +20,15 @@ include "adminheader.php";
     </tr>
   </thead>
   <tbody>
+   <?php include("connect.php"); 
+    $user_query=mysql_query("select LNAME,LLOCATION from branch")or die(mysql_error());
+	while($row=mysql_fetch_array($user_query)){
+	?>
     <tr>
-      <td></td>
-      <td></td>
+      <td><?php echo $row['LNAME']; ?></td>
+      <td><?php echo $row['LLOCATION']; ?></td>
     </tr>
-    
+    <?php } ?>
   </tbody>
 </table>
 </div>
@@ -34,4 +38,3 @@ include "adminheader.php";
 include 'footer.php';
 ?>
 </html>
-
