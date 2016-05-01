@@ -16,19 +16,32 @@ $rid=$_SESSION['rid'];
 <body>
 <?php 
 include("connect.php"); 
+
+
     $user_query=mysql_query("select RDTIME from borrows WHERE READERID='$rid'")or die(mysql_error());
 	while($row=mysql_fetch_array($user_query)){
 	$_SESSION['aid']=$row['RDTIME'];
+	$result = mysql_query("SELECT DATEDIFF((SELECT RDTIME FROM borrows WHERE BORNUMBER = 1), (SELECT BDTIME FROM borrows WHERE BORNUMBER = 1)) AS days");
+		if (!$result) {
+    echo 'Could not run query: ' . mysql_error();
+    exit;
+}
+$days = mysql_fetch_row($result);
+echo $days[0];
 	}
-
+	
+		
 		 function CalculateFine(){
  			
- 			$dueDate = new DateTime($_SESSION['aid']);
+			
+			
+			
+ 			/*$dueDate = new DateTime($_SESSION['aid']);
  			$now = date("y-m-d H:i:s");
 	 		$lateinterval = strtotime($now) - strtotime($_SESSION['aid']);
 			
  			$fine = $lateinterval > 0 ? intval(floor($lateinterval)) * 1 : 0;
- 			echo $fine; 
+ 			echo $fine;*/ 
 			
 	}
 
@@ -53,7 +66,7 @@ include("connect.php");
 	?>
   <tbody>
     <tr>
-      <th scope="row"><input type="checkbox" /></th>
+      <th scope="row"><input id="check" type="checkbox" /></th>
       <td><?php echo $row['TITLE']; ?></td>
       <td><?php echo $row['PUBNAME']; ?></td>
       <td><?php echo $row['TITLE']; ?></td>

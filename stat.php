@@ -25,7 +25,7 @@ include("connect.php");
 		  <script>
 								function call() {
 									// alert("onChange");
-									if (document.getElementById('stat').value == 'no_selection') {
+									if (document.getElementById('stat').value == '0') {
 										document.getElementById('borrow').style.display = "none";
 										document.getElementById('branch').style.display = "none";
 										document.getElementById('books').style.display = "none";

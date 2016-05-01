@@ -95,17 +95,23 @@
 								<?php 
 								include("connect.php");
 								$pubNameQuery = "SELECT DISTINCT PUBNAME FROM publisher order by PUBNAME";
-							
+								// echo "<script language='javascript'>alert(".$pubNameQuery.");</script>";
 								$result = $conn->query($pubNameQuery);
 								if ($result->num_rows > 0) {
-								
+								// echo "<table><tr><th>ID</th><th>Name</th></tr>";
+								// output data of each row
+								/*while($row = $result->fetch_assoc()) {
+								$pubname = $row["PUBNAME"];
+								echo "<option value=".$pubname.">".$pubname."</option>";
+								}*/
 								while($row = $result->fetch_assoc()) {
-								echo "<option value = '{$row['PUBNAME']}'>{$row['PUBNAME']}</option>";
-
-								
+								echo "<option value = '{$row['PUBNAME']}'";
+								/*if ($selected_venue_id == $row['PUBNAME'])
+								echo "selected = 'selected'";*/
+								echo ">{$row['PUBNAME']}</option>";
 								}
-								}?>
-								
+								}
+								?>
 								</select>
 							</div>
 
@@ -248,7 +254,8 @@
 							$authorIDQuery 	= "SELECT AUTHORID FROM AUTHOR WHERE ANAME ='".$author."';";
 							$libIdQuery		= "SELECT LIBID FROM BRANCH WHERE LNAME = '".$lname."';";
 							echo $pubIdQuery;
-							
+							// echo "<script language='javascript'>alert(".$pubIdQuery.");</script>";
+							// echo "<script language='javascript'>alert('".$pubIdQuery."');</script>";
 							$pubIdResult 	= $conn->query($pubIdQuery);
 							if ($pubIdResult->num_rows > 0) {
 								$pubId = $pubIdResult->fetch_assoc();
@@ -293,7 +300,18 @@
 
 								$sql = "INSERT INTO document(DOCID,TITLE,PDATE,PUBLISHERID) VALUES(NULL,'".$title."' , '".$pDate."' , '".$pubId['PUBLISHERID']."');"; 
 
-								
+								// echo "<br>";
+								// echo $sql; 
+								// echo "<br>";
+								// echo "ISBN ".$isbn.", Author: ".$author;
+								// echo "<br>";
+								// echo $bookQuery; 
+								// echo "<script type='text/javascript'>alert(".$docQuery.");</script>";
+								// $conn->autocommit(FALSE); 
+								// echo "Inserting query";
+								// echo '<script language="javascript">';
+								// echo 'alert("message successfully sent")';
+								// echo '</script>';
 								$conn->query($sql);
 								if ($docType == 'book') {
 									$sql = "INSERT INTO book(DOCID,ISBN) VALUES ($conn->insert_id,".$isbn.");";
@@ -313,7 +331,24 @@
 									echo '<div id="successDiv" style="background-color:#DAF799">Document successfully added</div>';
 								}
 							}
-							
+							// if (!$conn->commit()) {
+
+							// 	echo "<br>";
+							// 	echo "Information cannot be saved";
+								// echo "<script language='javascript'>alert('Information cannot be saved');</script>";
+							// } else{
+								// echo "<br>";
+								// printf("Last inserted record has id %d\n", mysql_insert_id());
+								// $id = mysql_insert_id();
+								// echo $id;
+								// $id = mysql_insert_id();
+								// echo $id;
+								// echo "<br>";
+								// echo "Information saved successfully";
+								// echo "<script language='javascript'>alert('New Record Has Been Added');</script>";
+							// }
+							// $result = mysql_query($query)or die(mysql_error());
+							// header('location:newreader.php');
 						}
 					?>
 				</div>
