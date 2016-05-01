@@ -21,19 +21,25 @@ include("connect.php");
     $user_query=mysql_query("select RDTIME from borrows WHERE READERID='$rid'")or die(mysql_error());
 	while($row=mysql_fetch_array($user_query)){
 	$_SESSION['aid']=$row['RDTIME'];
-	$result = mysql_query("SELECT DATEDIFF((SELECT RDTIME FROM borrows WHERE BORNUMBER = 1), (SELECT BDTIME FROM borrows WHERE BORNUMBER = 1)) AS days");
+	$result = mysql_query("SELECT DATEDIFF((SELECT RDTIME FROM borrows WHERE BORNUMBER = 2), (SELECT BDTIME FROM borrows WHERE BORNUMBER = 2)) AS days");
 		if (!$result) {
     echo 'Could not run query: ' . mysql_error();
     exit;
 }
 $days = mysql_fetch_row($result);
-echo $days[0];
+$_SESSION['days']=$days['0'];
+$days=$_SESSION['days'];
+
+
 	}
 	
 		
 		 function CalculateFine(){
+		 	
+			$days=$_SESSION['days'];
  			
-			
+			$fine = $days * 10;
+			echo "$"." ".$fine;
 			
 			
  			/*$dueDate = new DateTime($_SESSION['aid']);
