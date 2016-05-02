@@ -8,9 +8,12 @@
 include "adminheader.php";
 ?>
 <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
 </head>
 
 <body>
+
 <div class="container" style="padding-top:70px;">
 <table class="table table-striped">
   <thead>
@@ -19,7 +22,7 @@ include "adminheader.php";
       <th>Location</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style="overflow:auto; height:20px;">
    <?php include("connect.php"); 
     $user_query=mysql_query("select LNAME,LLOCATION from branch")or die(mysql_error());
 	while($row=mysql_fetch_array($user_query)){

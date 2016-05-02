@@ -19,16 +19,21 @@
       <th>Copy Number</th>
 	  <th>Branch Name</th>
 	</tr>
+	<?php  
+    $user_query=mysql_query("SELECT b.READERID,r.RNAME,d.TITLE,b.COPYNO,c.LNAME,LLOCATION,COUNT(*) AS TOTAL FROM borrows b,document d,branch c,reader r WHERE d.DOCID=b.DOCID AND b.LIBID=c.LIBID GROUP BY READERID ORDER BY TOTAL DESC LIMIT 10;")or die(mysql_error());
+	while($row=mysql_fetch_array($user_query)){
+	?>
   </thead>
   <tbody>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-	  <td></td>
+      <td><?php echo $row['READERID']; ?></td>
+      <td><?php echo $row['RNAME']; ?></td>
+      <td><?php echo $row['TITLE']; ?></td>
+      <td><?php echo $row['COPYNO']; ?></td>
+	  <td><?php echo $row['LLOCATION']; ?></td>
 	
     </tr>
+	<?php } ?>
     </tbody>
 </table>
 </div>

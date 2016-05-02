@@ -21,12 +21,18 @@
   </thead>
   <tbody>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+	<?php  
+    $user_query=mysql_query("SELECT b.DOCID,TITLE,COPYNO,LNAME,COUNT(*) AS TOTAL FROM borrows b,document d,branch c WHERE d.DOCID=b.DOCID AND b.LIBID=c.LIBID GROUP BY DOCID ORDER BY DOCID DESC LIMIT 10;")or die(mysql_error());
+	while($row=mysql_fetch_array($user_query)){
+	?>
+    
+      <td><?php echo $row['DOCID']; ?></td>
+      <td><?php echo $row['TITLE']; ?></td>
+      <td><?php echo $row['COPYNO']; ?></td>
+      <td><?php echo $row['LNAME']; ?></td>
 	  
     </tr>
+<?php } ?>
     </tbody>
 </table>
 </div>

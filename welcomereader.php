@@ -3,7 +3,7 @@ session_start();//session starts here
 $rid=$_SESSION['rid'];
 include("connect.php");
 if (!isset($_SESSION['rid'])){
-	header('location:index.php');
+	header('location:logout.php');
 	exit();
 	}
 	

@@ -7,7 +7,12 @@
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
+<?php
 
+  
+session_start();//session starts here  
+$rid=$_SESSION['rid'];
+?>
 <body>
 <div id="fine" class="container" style="padding-top:70px;display:none;">
 <table class="table table-striped">
